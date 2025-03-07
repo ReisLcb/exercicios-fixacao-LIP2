@@ -53,32 +53,40 @@ export function mediaIdades(vetor:any[]):number{
     }, 0)) / vetor.length
 }
 
-export function primeiroNomeProfessores(vetor:any[]){
+export function encontrarPorDominioEmail(vetor:any[], dominio:string):any[]{
+    let dominioEmailPessoa:string = ""
+    let pessoasEncontradas:any[] = []
+
+    for (const pessoa of vetor) {
+        for (let i = 0; i < pessoa.email.length; i++) {
+            if (pessoa.email[i] == "@"){
+                for (let y = i; y < pessoa.email.length; y++) {
+                    dominioEmailPessoa += pessoa.email[y]                    
+                }
+            }
+        }
+        
+        if(dominio == dominioEmailPessoa) pessoasEncontradas.push(pessoa)
+        dominioEmailPessoa = ""
+    }
+
+    return pessoasEncontradas
+}
+
+export function primeiroNomeProfessores(vetor:any[]):string[]{
     let i = 0
     let string = ""
     let strings:string[] = []
     let professores:any[] = vetor.filter((item) => item.isProfessor == true)
 
     for (const professor of professores) {
-        for (let i = 0; i < professor.nome.length; i++) {
-            if (professor.nome.charCodeAt(i) != 32) string += professor.nome[i]
-            else{
-                strings.push(string)
-                string = ""
+            while(professor.nome.charCodeAt(i) != 32){
+                 string += professor.nome[i]
+                 i++
             }
+            strings.push(string)
+            string = ""
+            i = 0
         }
-    }
     return strings
 }
-
-
-
-
-
-
-
-
-
-
-
-
