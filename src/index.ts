@@ -1,4 +1,4 @@
-import { buscaDDD, encontrarProfessores, maiorIdade, mediaIdades, menorIdade, primeiroNomeProfessores } from "./controller";
+import { buscaDDD, encontrarPorDominioEmail, encontrarProfessores, maiorIdade, mediaIdades, menorIdade, primeiroNomeProfessores } from "./controller";
 
 let pessoas = [
     {
@@ -215,11 +215,12 @@ let pessoas = [
     },
 ];
 
-console.log(encontrarProfessores(pessoas));
-console.log(buscaDDD(pessoas, "11"));
-console.log(menorIdade(pessoas));
-console.log(maiorIdade(pessoas));
-console.log(mediaIdades(pessoas));
-console.log(primeiroNomeProfessores(pessoas));
+console.log(encontrarProfessores(pessoas)); // Exercício 1
+console.log(buscaDDD(pessoas, "11")); // Exercício 2
+console.log(menorIdade(pessoas)); // Exercício 3
+console.log(maiorIdade(pessoas)); // Exercício 4
+console.log(mediaIdades(pessoas)); // Exercício 5
+console.log(encontrarPorDominioEmail(pessoas, "@yahoo.com")); // Exercício 6
+console.log(primeiroNomeProfessores(pessoas)); // Exercício 7
 
 
